@@ -1,15 +1,18 @@
 {
-  "name": "Middleware-App",
+  "name": "middleware-app",
   "version": "1.0.0",
   "description": "A Simple Middleware App to Practice Node.JS!",
-  "main": "index.js",
-  "scripts": {},
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Amir-Pourhadi/Middleware-App.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Amir Pourhadi",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Amir-Pourhadi/Middleware-App/issues"
