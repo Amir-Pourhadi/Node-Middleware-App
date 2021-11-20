@@ -8,6 +8,10 @@ const app = express();
 // The port the express app will listen on
 const port = process.env.PORT || 3000;
 
+app.get("/", (req, res) => {
+  res.status(200).send("Hello to my App!");
+});
+
 // Send files middleware
 app.use((req, res, next) => {
   const filepath = path.join(__dirname, "static", req.url);
