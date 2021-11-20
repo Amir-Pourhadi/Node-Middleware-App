@@ -8,7 +8,21 @@ const app = express();
 // The port the express app will listen on
 const port = process.env.PORT || 3000;
 
+// Send files middleware
+app.use((req, res, next) => {
+  const filepath = path.join(__dirname, "static", req.url);
+  fs.stat(filepath, (err, stats) => {
+    if (err) {
+      return next();
+    } else if (stats.isFile()) {
+      res.sendFile(filepath);
+    } else {
+      next();
+    }
+  });
+});
+
 // Listen on the port
 app.listen(port, () => {
-  console.info(`Listening on http://localhost:3000/${port}`);
+  console.info(`Listening on http://localhost:${port}`);
 });
