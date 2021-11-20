@@ -22,6 +22,11 @@ app.use((req, res, next) => {
   });
 });
 
+// Handle 404 errors
+app.use((req, res) => {
+  res.status(404).send("404: File Not Found!");
+});
+
 // Listen on the port
 app.listen(port, () => {
   console.info(`Listening on http://localhost:${port}`);
