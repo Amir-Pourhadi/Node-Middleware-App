@@ -11,8 +11,11 @@ const port = process.env.PORT || 3000;
 // Serve ejs files from the views directory
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
-  res.status(200).render("base");
+// Show date in console
+app.use((req, res, next) => {
+  const date = new Date();
+  console.log(`Request Time: ${date.getHours()}:${date.getMinutes()}`);
+  next();
 });
 
 // Send files middleware
@@ -27,6 +30,11 @@ app.use((req, res, next) => {
       next();
     }
   });
+});
+
+// Render home page
+app.get("/", (req, res) => {
+  res.status(200).render("base");
 });
 
 // Handle 404 errors
