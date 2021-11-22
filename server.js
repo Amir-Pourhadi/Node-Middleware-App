@@ -14,7 +14,7 @@ app.set("view engine", "ejs");
 // Show date in console
 app.use((req, res, next) => {
   const date = new Date();
-  console.log(`Request Time: ${date.getHours()}:${date.getMinutes()}`);
+  res.locals.now = `${date.getHours()}:${date.getMinutes()}`;
   next();
 });
 
