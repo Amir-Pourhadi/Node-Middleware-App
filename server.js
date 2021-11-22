@@ -8,8 +8,11 @@ const app = express();
 // The port the express app will listen on
 const port = process.env.PORT || 3000;
 
+// Serve ejs files from the views directory
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
-  res.status(200).send("Hello to my App!");
+  res.status(200).render("base");
 });
 
 // Send files middleware
